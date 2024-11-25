@@ -20,7 +20,7 @@
                 </a>
 
                 <x-primary-button class="ms-4">
-                    {{ __('Criar') }}
+                    {{ __('Editar') }}
                 </x-primary-button>
             </div>
         </form>
