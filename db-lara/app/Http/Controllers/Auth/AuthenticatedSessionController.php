@@ -36,17 +36,17 @@ class AuthenticatedSessionController extends Controller
 
         if($cargo == 1){
 
-    return redirect()->route('admin_post');
+    return redirect()->route('admin_post')->with('success', 'Seja bem vindo!');
 
 }
         elseif ($cargo == 2){
 
-    return redirect()->route('adminindex');
+    return redirect()->route('adminindex')->with('success', 'Seja bem vindo!');
 
     }
     elseif ($cargo == 3){
 
-        return redirect()->route('user');
+        return redirect()->route('user')->with('success', 'Seja bem vindo!');
 
         }
 

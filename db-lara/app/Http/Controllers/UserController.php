@@ -62,7 +62,7 @@ $this->user = new User();
     'data_nascimento' => $request->input('data_nascimento'),
 
     ]);
-    return redirect()->route('postoindex');
+    return redirect()->route('postoindex')->with('criado');
     }
 
 
@@ -87,9 +87,9 @@ $this->user = new User();
                 $updated = $this->user->where('id', $id)->update($request->except(['_token','_method']));
 
                 if($updated){
-                return redirect()->route('postoindex')->with('message','Successfully updated');
+                return redirect()->route('postoindex')->with('editado');
             }
-                return redirect()->route('postoindex')->with('message','erro ');
+                return redirect()->route('postoindex')->with('error','erro ');
 
             }
 
@@ -99,6 +99,6 @@ $this->user = new User();
             {
             $this->user->where('id', $id)->delete();
 
-            return redirect()->route('postoindex');
+            return redirect()->route('postoindex')->with('apagado');
             }
 }

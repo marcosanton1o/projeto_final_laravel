@@ -1,6 +1,6 @@
 @auth
 
-<x-guest-layout>
+<x-app-layout>
         <form action="{{ route('users.update', ['user' => $user->id]) }}" method="post">
             @csrf
             <input type="hidden" name="_method" value="PUT">
@@ -49,5 +49,5 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+</x-app-layout>
 @endauth

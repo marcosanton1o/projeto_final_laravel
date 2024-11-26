@@ -1,6 +1,6 @@
 @auth
 
-<x-guest-layout>
+<x-app-layout>
         <form action="{{ route('corridastore')}}" method="post">
             @csrf
 
@@ -30,5 +30,5 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+</x-app-layout>
 @endauth

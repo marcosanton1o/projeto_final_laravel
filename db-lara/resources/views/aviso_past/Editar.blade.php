@@ -1,6 +1,6 @@
 @auth
 
-<x-guest-layout>
+<x-app-layout>
         <form action="{{ route('avisoupdate', $aviso->id_aviso) }}" method="post">
             @csrf
             <input type="hidden" name="_method" value="PUT">
@@ -24,6 +24,6 @@
                 </x-primary-button>
             </div>
         </form>
-</x-guest-layout>
+    </x-app-layout>
 @endauth
 

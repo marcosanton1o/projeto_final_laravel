@@ -1,6 +1,6 @@
 @auth
 
-<x-guest-layout>
+<x-app-layout>
         <form action="{{ route('sugestaostore')}}" method="post">
             @csrf
 
@@ -26,5 +26,5 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+</x-app-layout>
 @endauth

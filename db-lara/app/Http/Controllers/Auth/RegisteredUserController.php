@@ -54,7 +54,7 @@ class RegisteredUserController extends Controller
     if ($cargo == 1 && !empty($posto_id_posto)) {
         return redirect()
             ->route('register')
-            ->with('message', 'Erro: Não é permitido criar o usuário com cargo 1 e posto_id_posto preenchido.');
+            ->with('adminerro', 'Erro: Não é permitido criar o administrador de postos ter um posto');
     }
     $request->validate([
         'name' => ['required', 'string', 'max:255'],
@@ -93,11 +93,11 @@ class RegisteredUserController extends Controller
     $request->session()->regenerate();
 
     if ($cargo == 1) {
-        return redirect()->route('admin_postindex');
+        return redirect()->route('admin_postindex')->with('success', 'Seja bem vindo!');
     } elseif ($cargo == 2) {
-        return redirect()->route('adminindex');
+        return redirect()->route('adminindex')->with('success', 'Seja bem vindo!');
     } elseif ($cargo == 3) {
-        return redirect()->route('userindex');
+        return redirect()->route('user')->with('success', 'Seja bem vindo!');
     } else {
         return redirect('/');
     }

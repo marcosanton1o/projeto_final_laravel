@@ -49,13 +49,11 @@ Route::middleware(['auth', 'verified', 'Admin_postmiddleware'])->group(function 
 
     Route::get('/admin_post', [Admin_postController::class, 'index'])->name('admin_postindex');
 
-    Route::get('/admin_post/users', [Admin_postController::class, 'users'])->name('admin.users');
+    Route::get('/admin_post/users/{id}', [Admin_postController::class, 'show'])->name('admin.users.show');
 
-    Route::get('/admin_post/users/{id}', [Admin_postController::class, 'showUser '])->name('admin.users.show');
+    Route::post('/admin_post/users/{id}/edit', [Admin_postController::class, 'edit'])->name('admin.users.edit');
 
-    Route::post('/admin_post/users/{id}/edit', [Admin_postController::class, 'editUser '])->name('admin.users.edit');
-
-    Route::delete('/admin_post/users/{id}', [Admin_postController::class, 'deleteUser '])->name('admin.users.delete');
+    Route::delete('/admin_post/users/{id}', [Admin_postController::class, 'delete'])->name('admin.users.delete');
 
 });
 

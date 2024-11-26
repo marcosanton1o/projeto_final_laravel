@@ -14,20 +14,7 @@ class AdminController extends Controller
     public function index()
 
     {
-        if (Auth::check()) {
-
-            $cargo = Auth::user()->cargo;
-            return view('admin');
-
-        } else {
-
-            $cargo = null;
-            return view('admin');
-
-        }
-
-
-
+        return view('admin');
     }
 
 }

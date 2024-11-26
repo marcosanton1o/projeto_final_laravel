@@ -147,7 +147,7 @@ $cargo = Auth::user()->cargo;
 <form action="{{ route('admin.users.delete',['user' => $user->id])}}" method="post">
 @csrf
 <input type="hidden" name="_method" value="DELETE">
-<button type="submit" class="bg-red-600">Apagar</button>
+<button type="submit" class="px-4 py-2 text-white bg-red-600 rounded ">Apagar</button>
                         </form>
                         </div>
                       </dialog>

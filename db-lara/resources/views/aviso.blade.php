@@ -30,7 +30,7 @@ $cargo = Auth::user()->cargo;
                     <tr>
                         <th scope="col" class="px-6 py-3">Título:</th>
                         <th scope="col" class="px-6 py-3">assunto:</th>
-                        <th scope="col" class="px-6 py-3">Data:</th>                          :</th>
+                        <th scope="col" class="px-6 py-3">Data:</th>
                         <th scope="col" class="px-6 py-3">Editar</th>
                         <th scope="col" class="px-6 py-3">Apagar</th>
                     </tr>
@@ -72,7 +72,7 @@ $cargo = Auth::user()->cargo;
                                             <form action="{{ route('avisodelete', ['aviso' => $aviso->id_aviso]) }}" method="post">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">
-                                                <button type="submit" class="px-4 py-2 text-white bg-gray-500 rounded">Apagar</button>
+                                                <button type="submit" class="px-4 py-2 text-white bg-red-600 rounded ">Apagar</button>
                                             </form>
                                         </div>
                                     </dialog>

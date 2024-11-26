@@ -1,6 +1,6 @@
 @auth
 
-<x-guest-layout>
+<x-app-layout>
         <form action="{{ route('avisostore')}}" method="post">
             @csrf
 
@@ -24,5 +24,5 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+</x-app-layout>
 @endauth
