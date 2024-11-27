@@ -12,13 +12,11 @@ $cargo = Auth::user()->cargo;
             </h2>
         </div>
     </x-slot>
-
+    <div class="py-8">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+<div class="relative overflow-x-auto">
     @if ($cargo == 2)
-        @if (session()->has('message'))
-            {{ session()->get('message') }}
-        @endif
 
-        <div class="relative overflow-x-auto px-4 sm:px-6 lg:px-12">
             <table class="w-full min-w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
 
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -42,11 +40,17 @@ $cargo = Auth::user()->cargo;
         </div>
 
 @elseif ($cargo == 3)
-@if (session()->has('message'))
-            {{ session()->get('message') }}
+@if (session()->has('editado'))
+<x-editado-aviso>
+</x-criado-aviso>
+@elseif (session()->has('apagado'))
+<x-apagado-aviso>
+</x-criado-aviso>
+@elseif (session()->has('criado'))
+<x-criado-aviso>
+</x-criado-aviso>
         @endif
 
-        <div class="relative overflow-x-auto px-4 sm:px-6 lg:px-12">
             <table class="w-full min-w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <a href="{{ route('sugestaocreate') }}" class="inline-block px-6 py-2 mb-3 text-white bg-sky-800 hover:bg-blue-700 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                     Adicionar sugestao
@@ -107,7 +111,7 @@ $cargo = Auth::user()->cargo;
                 </tbody>
             </table>
         </div>
-    @endif
+    @endif</div></div>
 </x-app-layout>
 
 @endauth

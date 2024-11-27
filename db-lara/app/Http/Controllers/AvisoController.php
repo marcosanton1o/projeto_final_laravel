@@ -39,7 +39,7 @@ class AvisoController extends Controller
             'user_id' => Auth::id(),
         ]);
 
-        return redirect()->route('avisoindex')->with('success', 'Sua sugestão foi publicada');
+        return redirect()->route('avisoindex')->with('criado', 'mu');
     }
     public function show($id)
 
@@ -56,13 +56,13 @@ public function update(Request $request, $id)
 {
     $updated=$this->aviso->where('id_aviso',$id)->update($request->except(['_token','_method']));
 
-    return redirect()->route('avisoindex')->with('success', 'Aviso editado');
+    return redirect()->route('avisoindex')->with('editado', 'nn');
 }
 
     public function destroy(string $id)
     {
         $this->aviso->where('id_aviso', $id)->delete();
 
-    return redirect()->route('avisoindex');
+    return redirect()->route('avisoindex')->with('apagado','g');;
 }
 }

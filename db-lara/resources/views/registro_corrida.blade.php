@@ -13,11 +13,20 @@ $cargo = Auth::user()->cargo;
         </div>
     </x-slot>
 
-        @if (session()->has('message'))
-            {{ session()->get('message') }}
-        @endif
 
-        <div class="relative overflow-x-auto px-4 sm:px-6 lg:px-12">
+            <div class="py-8">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    @if (session()->has('editado'))
+                    <x-editado-aviso>
+                    </x-criado-aviso>
+                    @elseif (session()->has('apagado'))
+                    <x-apagado-aviso>
+                    </x-criado-aviso>
+                    @elseif (session()->has('criado'))
+                    <x-criado-aviso>
+                    </x-criado-aviso>
+                            @endif
+        <div class="relative overflow-x-auto">
             <a href="{{ route('corridacreate') }}" class="inline-block px-6 py-2 mb-2 text-white bg-sky-800 hover:bg-blue-700 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                 Criar Registro
             </a>
@@ -82,6 +91,7 @@ $cargo = Auth::user()->cargo;
                 </tbody>
             </table>
         </div>
+                </div></div>
 </x-app-layout>
 
 @endauth

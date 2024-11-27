@@ -39,7 +39,7 @@ class CorridaController extends Controller
             'nome_cliente' => $request->input('nome_cliente'),
         ]);
 
-        return redirect()->route('corridaindex')->with('success', 'Sugestão enviada com sucesso!');
+        return redirect()->route('corridaindex')->with('criado', 'im');
     }
     public function show($id)
 
@@ -56,7 +56,7 @@ public function update(Request $request, $id)
 {
     $updated=$this->corrida->where('id_registro_corrida',$id)->update($request->except(['_token','_method']));
 
-    return redirect()->route('corridaindex')->with('success', 'Aviso editado');
+    return redirect()->route('corridaindex')->with('editado', 'm');
 }
 
 
@@ -64,7 +64,7 @@ public function update(Request $request, $id)
     {
         $this->corrida->where('id_registro_corrida', $id)->delete();
 
-    return redirect()->route('corridaindex');
+    return redirect()->route('corridaindex')->with('apagado','g');;
     }
 }
 

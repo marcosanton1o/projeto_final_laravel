@@ -64,11 +64,17 @@ $cargo = Auth::user()->cargo;
 </div>
 
 @elseif($cargo == 2)
-@if (session()->has('message'))
-{{session()->get('message')}}
-@endif
 <div class="relative overflow-x-auto">
-
+    @if (session()->has('editado'))
+    <x-editado-aviso>
+    </x-criado-aviso>
+    @elseif (session()->has('apagado'))
+    <x-apagado-aviso>
+    </x-criado-aviso>
+    @elseif (session()->has('criado'))
+    <x-criado-aviso>
+    </x-criado-aviso>
+            @endif
     <table class="w-full min-w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <a href="{{ route('users.create') }}" class="inline-block px-6 py-2 mb-2 text-white bg-sky-800 hover:bg-blue-700 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
             Criar Membro

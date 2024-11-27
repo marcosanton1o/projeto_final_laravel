@@ -55,4 +55,6 @@ html:has(dialog[open]) {
     right: 1rem;
     cursor: pointer;
   }
-
+  .alerta-geral {
+    border: none;
+}

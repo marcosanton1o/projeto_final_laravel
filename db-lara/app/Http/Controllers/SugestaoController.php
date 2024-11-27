@@ -44,7 +44,7 @@ $created = $this->sugestao->create([
             'descricao' => $request->input('descricao'),
         ]);
 
-        return redirect()->route('sugestaoindex')->with('success', 'Sugestão enviada com sucesso!');
+        return redirect()->route('sugestaoindex')->with('criado','g');
     }
     public function show($id)
 
@@ -71,7 +71,7 @@ $created = $this->sugestao->create([
 
         $sugestao->update($validated);
 
-        return redirect()->route('sugestaoindex')->with('success', 'Sugestão atualizada com sucesso!');
+        return redirect()->route('sugestaoindex')->with('editado','m');
 
     }
 
@@ -79,6 +79,6 @@ $created = $this->sugestao->create([
     {
         $this->sugestao->where('id_sugestao', $id)->delete();
 
-    return redirect()->route('sugestaoindex');
+    return redirect()->route('sugestaoindex')->with('apagado','apagado');
     }
 }
