@@ -4,7 +4,21 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
+
         <div>
+            @if (session()->has('adminfalso'))
+            <div id="alert-border-3" class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400">
+                    {{ session()->get('adminfalso') }}
+                </div>
+            </div>
+            @elseif (session()->has('falsouser'))
+            <div id="alert-border-3" class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400">
+                    {{ session()->get('falsouser') }}
+                </div>
+            </div>
+        @endif
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />

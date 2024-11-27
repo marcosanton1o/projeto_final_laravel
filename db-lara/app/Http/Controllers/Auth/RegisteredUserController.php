@@ -52,9 +52,11 @@ class RegisteredUserController extends Controller
     $cargo = $request->input('cargo');
 
     if ($cargo == 1 && !empty($posto_id_posto)) {
-        return redirect()
-            ->route('register')
-            ->with('adminerro', 'Erro: Não é permitido criar o administrador de postos ter um posto');
+        return redirect()->route('register')->with('adminfalso', 'O administrador de postos não participa de um posto!');
+    } if (($cargo == 2 || $cargo == 3) && $posto_id_posto == null) {
+
+        return redirect()->route('register')->with('falsouser', 'O usuário ou o administrador deve participar de um posto');
+
     }
     $request->validate([
         'name' => ['required', 'string', 'max:255'],
