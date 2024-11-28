@@ -3,8 +3,6 @@
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
-
-
         <div>
             @if (session()->has('adminfalso'))
             <div id="alert-border-3" class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
@@ -26,7 +24,7 @@
 
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-text-input id="email" class="block mt-1 w-full" type="text" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
@@ -49,24 +47,24 @@
 
         <div class="mt-4">
             <x-input-label for="number" :value="__('Número de telefone')" />
-            <x-text-input id="numero_tel" class="block mt-1 w-full" minlength="2" maxlength="15" type="number" name="numero_tel" :value="old('numero_tel')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('numero_tel')" class="mt-2" />
+            <x-text-input id="numero_tel" class="block mt-1 w-full" type="number" name="numero_tel" :value="old('numero_tel')" required autocomplete="username" />
+            <x-input-error :messages="$errors->get('numero de telefone')" class="mt-2" />
         </div>
         <div class="mt-4">
             <x-input-label for="number" :value="__('CPF')" />
-            <x-text-input id="cpf" class="block mt-1 w-full" type="number" name="cpf" minlength="5" maxlength="12" min:value="old('cpf')" required autocomplete="username" />
+            <x-text-input id="cpf" class="block mt-1 w-full" type="number" name="cpf" minlength="5" maxlength="12" :value="old('cpf')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('cpf')" class="mt-2" />
 
         </div>
 <div class="mt-4">
     <x-input-label for="number" :value="__('Placa carro')" />
-    <x-text-input id="placa_carro" class="block mt-1 w-full" type="number" minlength="7" maxlength="7" name="placa_carro" :value="old('placa_carro')" required autocomplete="username" />
-    <x-input-error :messages="$errors->get('cpf')" class="mt-2" />
+    <x-text-input id="placa_carro" class="block mt-1 w-full" type="number" name="placa_carro" :value="old('placa_carro')" required autocomplete="username" />
+    <x-input-error :messages="$errors->get('placa de carro')" class="mt-2" />
 </div>
 <div class="mt-4">
     <x-input-label for="number" :value="__('Data de nascimento')" />
     <input type="date" id="data_nascimento" placeholder="John Doe" name="data_nascimento" :value="old('data_nascimento')" required autocomplete="username"  class="block  mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
-    <x-input-error :messages="$errors->get('data_nascimento')" class="mt-2" />
+    <x-input-error :messages="$errors->get('data de nascimento')" class="mt-2" />
 </div>
         <div class="mt-4">
             <x-input-label for="posto_id_posto" :value="__('ID do posto')" />
@@ -82,6 +80,7 @@
                 @endforeach
 
             </select>
+            <x-input-error :messages="$errors->get('posto_id_posto')" class="mt-2" />
         </div>
         <div class="mt-4">
             <x-input-label for="password" :value="__('Senha')" />

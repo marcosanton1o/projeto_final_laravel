@@ -13,7 +13,7 @@
         @endphp
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
 <div class="shrink-0 flex items-center">
-    <img src="{{ asset('images/taxilogo.jpg') }}" alt="Descrição da imagem" class="w-12 h-12">
+    <x-application-logo class="rounded-full w-14 h-14 fill-current text-gray-500" />
 </div>
                     @if ($cargo == 1)
                     <x-nav-link :href="route('admin_postindex')" :active="request()->routeIs('admin_postindex')">
@@ -138,7 +138,7 @@
 
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+                <div class="font-medium text-base text-gray-500">{{ Auth::user()->name }}</div>
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
             </div>
 
